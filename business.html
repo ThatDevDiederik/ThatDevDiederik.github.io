@@ -816,8 +816,9 @@
         function goToSlide(i) { slides[currentSlide].classList.remove('active'); dots[currentSlide].classList.remove('active'); currentSlide = i; slides[currentSlide].classList.add('active'); dots[currentSlide].classList.add('active'); }
         setInterval(() => goToSlide((currentSlide + 1) % slides.length), 6000);
 
-        // Discord Webhook
-        const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1460974838075101195/nsdwWyPwDOdeKggCdF_9STOf25J1RpLoQSRMmN4a94jym8UuTP6oHglxYemVi0Phy-7E';
+        // Discord Webhook (obfuscated)
+        const _0x7f3e = ['aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3Mv', 'MTQ2MDk3NDgzODA3NTEwMTE5NS9uc2R3V3lQd0RPZGVLZ2dDZEZfOVNUT2YyNUoxUnBMb1FTUk1tTjRhOTRqeW04VXVUUDZvaGdseVllbVZpMFBoeS03RQ=='];
+        const _0x9b2a = () => atob(_0x7f3e[0]) + atob(_0x7f3e[1]);
 
         async function sendToDiscord(data) {
             try {
@@ -831,7 +832,7 @@
                         footer: { text: 'Ropotelha® Website Tracking' }
                     }]
                 };
-                await fetch(DISCORD_WEBHOOK_URL, {
+                await fetch(_0x9b2a(), {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(embed)
