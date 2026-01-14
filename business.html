@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ropotelha® - Give Room to Nature | Premium Plant Pots & Planters</title>
+    <title>Ropotelha® - Hospitality Solutions | Commercial Plant Pots & Planters</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -466,23 +466,23 @@
     </style>
 </head>
 <body>
-    <!-- CONSUMER PAGE -->
+    <!-- B2B HOSPITALITY PAGE -->
     
-        <!-- Top Bar -->
-        <div class="top-bar">
-            <div class="top-bar-content">
-                <div class="top-bar-features">
-                    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg><span data-i18n="topbar.shipping">Free shipping over €50</span></span>
-                    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span data-i18n="topbar.returns">30-day returns</span></span>
-                    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span data-i18n="topbar.delivery">2-3 day delivery</span></span>
-                </div>
-                <div class="top-bar-links">
-                    <a href="business.html" data-i18n="topbar.business">For Business</a>
-                    <a onclick="showToast(t('toast.stores'))" data-i18n="topbar.stores">Find a Store</a>
-                    <a onclick="showToast(t('toast.help'))" data-i18n="topbar.help">Help</a>
-                    <!-- Language Switcher -->
-                    <div class="lang-switcher" id="langSwitcher" onclick="toggleLangDropdown(event)">
-                        <span class="current-lang" id="currentLangDisplay">EN</span>
+        <header class="b2b-header">
+            <div class="b2b-header-content">
+                <a class="b2b-logo" href="index.html">Ropotelha<span class="brand-mark">®</span> <span class="b2b-label" data-i18n="b2b.label">Hospitality</span></a>
+                <nav class="b2b-nav" id="b2bNav">
+                    <a onclick="handleB2BNavClick(this, 'b2b-products')" data-i18n="b2b.nav.products">Product Range</a>
+                    <a onclick="handleB2BNavClick(this, 'b2b-sustainability')" data-i18n="b2b.nav.production">Responsible Production</a>
+                    <a onclick="handleB2BNavClick(this, 'b2b-process')" data-i18n="b2b.nav.process">How We Work</a>
+                    <a href="index.html" data-i18n="b2b.nav.consumer">Consumer Site</a>
+                    <div class="b2b-nav-indicator" id="b2bNavIndicator"></div>
+                </nav>
+                <div class="b2b-header-actions">
+                    <button class="b2b-cta-header" onclick="scrollToB2BSection('b2b-contact')" data-i18n="b2b.nav.cta">Request Information</button>
+                    <!-- B2B Language Switcher -->
+                    <div class="b2b-lang-switcher" id="b2bLangSwitcher" onclick="toggleB2BLangDropdown(event)">
+                        <span class="current-lang" id="b2bCurrentLangDisplay">EN</span>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                         <div class="lang-dropdown">
                             <button data-lang="en" class="active" onclick="setLanguage('en', event)">
@@ -495,217 +495,143 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Header -->
-        <header>
-            <div class="header-main">
-                <a class="logo" href="index.html">Ropotelha<span>®</span></a>
-                <nav id="mainNav">
-                    <a onclick="handleNavClick(this, 'categories')" class="active" data-i18n="nav.shop">Shop</a>
-                    <a onclick="handleNavClick(this, 'products')" data-i18n="nav.collections">Collections</a>
-                    <a onclick="handleNavClick(this, 'sustainability')" data-i18n="nav.sustainability">Sustainability</a>
-                    <a onclick="showToast(t('toast.inspiration'))" data-i18n="nav.inspiration">Inspiration</a>
-                    <a href="business.html" data-i18n="nav.business">For Business</a>
-                    <div class="nav-indicator" id="navIndicator"></div>
-                </nav>
-                <div class="header-actions">
-                    <button onclick="showToast(t('toast.search'))"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></button>
-                    <button onclick="showToast(t('toast.account'))"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></button>
-                    <button class="cart-btn" onclick="showToast(t('toast.cart'))"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span class="cart-count">0</span></button>
-                </div>
-            </div>
         </header>
 
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-slide active">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <h1 data-i18n="hero.title1">Give room to nature</h1>
-                        <p data-i18n="hero.desc1">Discover our sustainable plant pots made from 100% recycled materials. Bring nature into your home while protecting our planet.</p>
-                        <button class="btn btn-primary" onclick="scrollToSection('products')"><span data-i18n="hero.cta1">Shop the collection</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-                    </div>
-                    <div class="hero-image">
-                        <img class="hero-pot-image" src="Images/Elho Vibes Fold Round Plant Pot.png" alt="Elho Vibes Fold Round Plant Pot">
-                    </div>
-                </div>
+        <section class="b2b-hero">
+            <div class="b2b-hero-content">
+                <h1 data-i18n="b2b.hero.title">Planters designed for the demands of hospitality</h1>
+                <p data-i18n="b2b.hero.desc">Durable, elegant, and responsibly produced. Our commercial-grade planters are trusted by hotels across Europe who expect performance and reliability.</p>
+                <button class="b2b-hero-cta" onclick="scrollToB2BSection('b2b-contact')"><span data-i18n="b2b.hero.cta">Speak with our team</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
             </div>
-            <div class="hero-slide">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <h1 data-i18n="hero.title2">Premium collection</h1>
-                        <p data-i18n="hero.desc2">Elegant designs that transform any space into a green sanctuary. Premium quality for discerning plant lovers.</p>
-                        <button class="btn btn-primary" onclick="scrollToSection('products')"><span data-i18n="hero.cta2">Explore premium</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-                    </div>
-                    <div class="hero-image">
-                        <img class="hero-pot-image" src="Images/Elho Pure Cone High Plant Pot.png" alt="Elho Pure Cone High Plant Pot">
-                    </div>
-                </div>
-            </div>
-            <div class="hero-dots"><button class="hero-dot active" onclick="goToSlide(0)"></button><button class="hero-dot" onclick="goToSlide(1)"></button></div>
         </section>
 
-        <!-- Categories Section -->
-        <section class="categories" id="categories">
-            <div class="section-header">
-                <h2 data-i18n="categories.title">Shop by Category</h2>
-                <p data-i18n="categories.subtitle">Find the perfect pot for every plant and every space in your home or garden</p>
-            </div>
-            <div class="category-grid">
-                <div class="category-card" onclick="showToast(t('toast.collection'))">
-                    <img src="Images/Indoor Pot.png" alt="Indoor Pot">
-                    <div class="category-info"><h3 data-i18n="cat.indoor">Indoor</h3><span>120+ products</span></div>
-                </div>
-                <div class="category-card" onclick="showToast(t('toast.collection'))">
-                    <img src="Images/Outdoor Pot.png" alt="Outdoor Pot">
-                    <div class="category-info"><h3 data-i18n="cat.outdoor">Outdoor</h3><span>85+ products</span></div>
-                </div>
-                <div class="category-card" onclick="showToast(t('toast.collection'))">
-                    <img src="Images/Premium Pot.png" alt="Premium Pot">
-                    <div class="category-info"><h3 data-i18n="cat.premium">Premium</h3><span>45+ products</span></div>
-                </div>
-                <div class="category-card" onclick="showToast(t('toast.collection'))">
-                    <img src="Images/Eco Collection.png" alt="Eco Collection">
-                    <div class="category-info"><h3 data-i18n="cat.eco">Eco Collection</h3><span>60+ products</span></div>
-                </div>
-                <div class="category-card" onclick="showToast(t('toast.collection'))">
-                    <img src="Images/Balcony.png" alt="Balcony">
-                    <div class="category-info"><h3 data-i18n="cat.balcony">Balcony</h3><span>50+ products</span></div>
-                </div>
-                <div class="category-card" onclick="showToast(t('toast.collection'))">
-                    <img src="Images/Grow Your Own.png" alt="Grow Your Own">
-                    <div class="category-info"><h3 data-i18n="cat.grow">Grow Your Own</h3><span>35+ products</span></div>
-                </div>
-                <div class="category-card" onclick="showToast(t('toast.collection'))">
-                    <img src="Images/Gift Sets.png" alt="Gift Sets">
-                    <div class="category-info"><h3 data-i18n="cat.gifts">Gift Sets</h3><span>25+ products</span></div>
-                </div>
-                <div class="category-card" onclick="showToast(t('toast.collection'))">
-                    <img src="Images/Accessories.png" alt="Accessories">
-                    <div class="category-info"><h3 data-i18n="cat.accessories">Accessories</h3><span>40+ products</span></div>
+        <!-- Romanian Partners Trust Bar -->
+        <section class="b2b-trust-bar">
+            <div class="b2b-trust-content">
+                <p class="b2b-trust-label" data-i18n="b2b.trust.label">Trusted by leading hospitality groups</p>
+                <div class="b2b-trust-logos">
+                    <div class="b2b-partner"><div class="b2b-partner-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div><span class="b2b-partner-name">Grand Hotel Carpați</span><span class="b2b-partner-location">București</span></div>
+                    <div class="b2b-partner"><div class="b2b-partner-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><span class="b2b-partner-name">Transilvania Resorts</span><span class="b2b-partner-location">Brașov</span></div>
+                    <div class="b2b-partner"><div class="b2b-partner-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg></div><span class="b2b-partner-name">Casa Verde Hotels</span><span class="b2b-partner-location">Cluj-Napoca</span></div>
+                    <div class="b2b-partner"><div class="b2b-partner-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><span class="b2b-partner-name">Marea Neagră Collection</span><span class="b2b-partner-location">Constanța</span></div>
+                    <div class="b2b-partner"><div class="b2b-partner-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div><span class="b2b-partner-name">Palat Hospitality Group</span><span class="b2b-partner-location">Timișoara</span></div>
                 </div>
             </div>
         </section>
 
-        <!-- Products Section -->
-        <section class="products" id="products">
-            <div class="products-container">
-                <div class="products-header">
-                    <h2 data-i18n="products.title">Must-have products</h2>
-                    <button class="btn btn-secondary" onclick="showToast(t('toast.allproducts'))"><span data-i18n="products.viewall">View all</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-                </div>
-                <div class="product-grid">
-                    <div class="product-card" onclick="showToast(t('toast.product'))">
-                        <div class="product-image">
-                            <img src="Images/Elho Vibes Fold Round Plant Pot.png" alt="Vibes Fold Round">
-                            <span class="product-badge badge-new" data-i18n="badge.new">New</span>
-                            <div class="product-actions">
-                                <button class="product-action-btn" onclick="event.stopPropagation(); addToWishlist('Vibes Fold')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-                                <button class="product-action-btn" onclick="event.stopPropagation(); addToCart('Vibes Fold')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></button>
-                            </div>
+        <section class="b2b-value-props" id="b2b-value-props">
+            <div class="b2b-section-header">
+                <h2 data-i18n="b2b.value.title">Why hospitality professionals choose Ropotelha</h2>
+                <p data-i18n="b2b.value.desc">We understand the unique requirements of hotel environments. Our products are engineered for the realities of commercial use.</p>
+            </div>
+            <div class="b2b-props-grid">
+                <div class="b2b-prop"><svg class="b2b-prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><h3 data-i18n="b2b.prop1.title">Commercial-grade durability</h3><p data-i18n="b2b.prop1.desc">UV-stable materials and reinforced construction withstand high-traffic environments, outdoor exposure, and frequent repositioning without visible wear.</p></div>
+                <div class="b2b-prop"><svg class="b2b-prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><h3 data-i18n="b2b.prop2.title">15-year product lifecycle</h3><p data-i18n="b2b.prop2.desc">Lower total cost of ownership through extended replacement cycles. Our planters maintain their appearance and structural integrity for over a decade.</p></div>
+                <div class="b2b-prop"><svg class="b2b-prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><h3 data-i18n="b2b.prop3.title">Verified supply chain</h3><p data-i18n="b2b.prop3.desc">European manufacturing with full traceability. Meet your procurement compliance requirements with documented sustainability credentials.</p></div>
+                <div class="b2b-prop"><svg class="b2b-prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg><h3 data-i18n="b2b.prop4.title">Interior design flexibility</h3><p data-i18n="b2b.prop4.desc">Neutral colour range and refined silhouettes complement any design scheme. From contemporary lobbies to heritage properties.</p></div>
+                <div class="b2b-prop"><svg class="b2b-prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><h3 data-i18n="b2b.prop5.title">Dedicated account management</h3><p data-i18n="b2b.prop5.desc">Single point of contact for specification, ordering, and after-sales support. We work on your timeline and respond within one business day.</p></div>
+                <div class="b2b-prop"><svg class="b2b-prop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg><h3 data-i18n="b2b.prop6.title">Volume pricing and logistics</h3><p data-i18n="b2b.prop6.desc">Competitive pricing for multi-property orders. Consolidated shipping and coordinated delivery schedules across your portfolio.</p></div>
+            </div>
+        </section>
+
+        <!-- Real Imagery Section -->
+        <section class="b2b-image-section">
+            <div class="b2b-image-grid">
+                <div class="b2b-image-card"><img src="https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=500&h=375&fit=crop" alt="Hotel terrace"><div class="b2b-image-label"><h4 data-i18n="b2b.image1.title">Hotel Terraces</h4><span data-i18n="b2b.image1.desc">Outdoor dining spaces</span></div></div>
+                <div class="b2b-image-card"><img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=500&h=375&fit=crop" alt="Hotel lobby"><div class="b2b-image-label"><h4 data-i18n="b2b.image2.title">Hotel Lobbies</h4><span data-i18n="b2b.image2.desc">First impressions</span></div></div>
+                <div class="b2b-image-card"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&h=375&fit=crop" alt="Restaurant interior"><div class="b2b-image-label"><h4 data-i18n="b2b.image3.title">Restaurant Areas</h4><span data-i18n="b2b.image3.desc">Dining atmosphere</span></div></div>
+            </div>
+        </section>
+
+        <section class="b2b-products" id="b2b-products">
+            <div class="b2b-products-content">
+                <div class="b2b-section-header"><h2 data-i18n="b2b.products.title">Commercial product range</h2><p data-i18n="b2b.products.desc">Four collections designed for different hospitality applications</p></div>
+                <div class="b2b-products-grid">
+                    <div class="b2b-product-card">
+                        <div class="b2b-product-image">
+                            <img src="Images/Lobby Collection.png" alt="Lobby Collection">
                         </div>
-                        <div class="product-info"><h3>Vibes Fold Round</h3><p class="color" data-i18n="color.leafgreen">Delicate Pink</p><div class="product-price"><span class="current">€24.95</span></div><div class="recycled-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg><span data-i18n="badge.recycled">100% Recycled</span></div></div>
+                        <div class="b2b-product-info"><h4 data-i18n="b2b.collection1.title">Lobby Collection</h4><p data-i18n="b2b.collection1.desc">Large-format statement planters for reception areas and public spaces</p></div>
                     </div>
-                    <div class="product-card" onclick="showToast(t('toast.product'))">
-                        <div class="product-image">
-                            <img src="Images/Elho Pure Cone High Plant Pot.png" alt="Pure Cone High">
-                            <span class="product-badge badge-premium">Premium</span>
-                            <div class="product-actions">
-                                <button class="product-action-btn" onclick="event.stopPropagation(); addToWishlist('Pure Cone')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-                                <button class="product-action-btn" onclick="event.stopPropagation(); addToCart('Pure Cone')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></button>
-                            </div>
+                    <div class="b2b-product-card">
+                        <div class="b2b-product-image">
+                            <img src="Images/Restaurant Collection.png" alt="Restaurant Collection">
                         </div>
-                        <div class="product-info"><h3>Pure Cone High</h3><p class="color" data-i18n="color.terracotta">Anthracite</p><div class="product-price"><span class="current">€89.95</span></div><div class="recycled-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg><span data-i18n="badge.recycled">100% Recycled</span></div></div>
+                        <div class="b2b-product-info"><h4 data-i18n="b2b.collection2.title">Restaurant Collection</h4><p data-i18n="b2b.collection2.desc">Mid-size planters for F&B areas, bars, and casual dining spaces</p></div>
                     </div>
-                    <div class="product-card" onclick="showToast(t('toast.product'))">
-                        <div class="product-image">
-                            <img src="Images/B.for Soft Round.png" alt="B.for Soft Round">
-                            <span class="product-badge badge-sale">-20%</span>
-                            <div class="product-actions">
-                                <button class="product-action-btn" onclick="event.stopPropagation(); addToWishlist('B.for Soft')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-                                <button class="product-action-btn" onclick="event.stopPropagation(); addToCart('B.for Soft')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></button>
-                            </div>
+                    <div class="b2b-product-card">
+                        <div class="b2b-product-image">
+                            <img src="Images/Terrace Collection.png" alt="Terrace Collection">
                         </div>
-                        <div class="product-info"><h3>B.for Soft Round</h3><p class="color" data-i18n="color.stone">White</p><div class="product-price"><span class="current">€15.96</span><span class="original">€19.95</span></div><div class="recycled-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg><span data-i18n="badge.recycled">100% Recycled</span></div></div>
+                        <div class="b2b-product-info"><h4 data-i18n="b2b.collection3.title">Terrace Collection</h4><p data-i18n="b2b.collection3.desc">Weather-resistant outdoor planters for terraces and pool areas</p></div>
                     </div>
-                    <div class="product-card" onclick="showToast(t('toast.product'))">
-                        <div class="product-image">
-                            <img src="Images/Greenville Round.png" alt="Greenville Round">
-                            <div class="product-actions">
-                                <button class="product-action-btn" onclick="event.stopPropagation(); addToWishlist('Greenville')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
-                                <button class="product-action-btn" onclick="event.stopPropagation(); addToCart('Greenville')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></button>
-                            </div>
+                    <div class="b2b-product-card">
+                        <div class="b2b-product-image">
+                            <img src="Images/Suite Collection.png" alt="Suite Collection">
                         </div>
-                        <div class="product-info"><h3>Greenville Round</h3><p class="color" data-i18n="color.black">Living Black</p><div class="product-price"><span class="current">€34.95</span></div><div class="recycled-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg><span data-i18n="badge.recycled">100% Recycled</span></div></div>
+                        <div class="b2b-product-info"><h4 data-i18n="b2b.collection4.title">Suite Collection</h4><p data-i18n="b2b.collection4.desc">Refined desktop and windowsill planters for guest rooms and suites</p></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Sustainability Section with FIXED Windmill -->
-        <section class="sustainability" id="sustainability">
-            <div class="sustainability-content">
-                <div class="sustainability-text">
-                    <h2 data-i18n="sustainability.title">100% sustainable, 100% beautiful</h2>
-                    <p data-i18n="sustainability.desc">Every Ropotelha product is made from recycled plastic, powered by wind energy, and designed to last. We believe sustainability and style go hand in hand.</p>
-                    <button class="btn btn-outline" onclick="showToast(t('toast.learnmore'))"><span data-i18n="sustainability.cta">Learn more</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-                    <div class="sustainability-stats">
-                        <div class="stat-item"><span class="stat-number">100%</span><span class="stat-label" data-i18n="stats.recycled">Recycled Materials</span></div>
-                        <div class="stat-item"><span class="stat-number">100%</span><span class="stat-label" data-i18n="stats.wind">Wind Energy</span></div>
-                        <div class="stat-item"><span class="stat-number">B Corp</span><span class="stat-label" data-i18n="stats.certified">Certified</span></div>
+        <section class="b2b-sustainability" id="b2b-sustainability">
+            <div class="b2b-sustainability-content">
+                <div class="b2b-sustainability-text">
+                    <h2 data-i18n="b2b.sustainability.title">Responsible production</h2>
+                    <p data-i18n="b2b.sustainability.desc">Our manufacturing processes meet the sustainability standards expected by leading hotel groups. Every product contributes to your ESG reporting and guest-facing sustainability communications.</p>
+                    <div class="b2b-cert-list">
+                        <div class="b2b-cert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span data-i18n="b2b.cert1">100% recycled plastic materials</span></div>
+                        <div class="b2b-cert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span data-i18n="b2b.cert2">Wind-powered manufacturing facility</span></div>
+                        <div class="b2b-cert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span data-i18n="b2b.cert3">Certified B Corporation</span></div>
+                        <div class="b2b-cert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span data-i18n="b2b.cert4">European production, full traceability</span></div>
+                        <div class="b2b-cert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span data-i18n="b2b.cert5">End-of-life recycling programme</span></div>
                     </div>
                 </div>
-                <div class="windmill-container">
-                    <div class="wind-particles"><div class="wind-particle"></div><div class="wind-particle"></div><div class="wind-particle"></div><div class="wind-particle"></div></div>
-                    <div class="windmill">
-                        <div class="windmill-base"></div>
-                        <div class="windmill-tower"></div>
-                        <div class="windmill-nacelle"></div>
-                        <div class="windmill-blades"><div class="blade"></div><div class="blade"></div><div class="blade"></div></div>
-                        <div class="windmill-hub"></div>
-                        <div class="windmill-grass"><div class="grass-blade"></div><div class="grass-blade"></div><div class="grass-blade"></div><div class="grass-blade"></div><div class="grass-blade"></div><div class="grass-blade"></div><div class="grass-blade"></div></div>
-                    </div>
+                <div class="b2b-sustainability-visual"><div class="b2b-cycle"><div class="b2b-cycle-center"><span>100%</span><small data-i18n="b2b.recyclable">Recyclable</small></div></div></div>
+            </div>
+        </section>
+
+        <section class="b2b-testimonial">
+            <div class="b2b-testimonial-content">
+                <p class="b2b-quote" data-i18n="b2b.testimonial.quote">"The durability and design quality exceeded our expectations. Three years in, the planters in our lobby and restaurant look as good as when they were installed."</p>
+                <p class="b2b-quote-author"><strong data-i18n="b2b.testimonial.role">Operations Director</strong><span data-i18n="b2b.testimonial.company">Leading European boutique hotel group</span></p>
+            </div>
+        </section>
+
+        <section class="b2b-process" id="b2b-process">
+            <div class="b2b-process-content">
+                <div class="b2b-section-header"><h2 data-i18n="b2b.process.title">How we work with hospitality clients</h2><p data-i18n="b2b.process.desc">A straightforward process designed for professional procurement teams</p></div>
+                <div class="b2b-process-steps">
+                    <div class="b2b-step"><div class="b2b-step-number">1</div><h4 data-i18n="b2b.step1.title">Initial consultation</h4><p data-i18n="b2b.step1.desc">Share your requirements. We'll provide relevant product recommendations and preliminary pricing.</p></div>
+                    <div class="b2b-step"><div class="b2b-step-number">2</div><h4 data-i18n="b2b.step2.title">Specification</h4><p data-i18n="b2b.step2.desc">Detailed product specifications, CAD files, and material samples for your design and procurement teams.</p></div>
+                    <div class="b2b-step"><div class="b2b-step-number">3</div><h4 data-i18n="b2b.step3.title">Quotation</h4><p data-i18n="b2b.step3.desc">Formal quote including volume pricing, delivery timeline, and logistics coordination.</p></div>
+                    <div class="b2b-step"><div class="b2b-step-number">4</div><h4 data-i18n="b2b.step4.title">Delivery</h4><p data-i18n="b2b.step4.desc">Coordinated delivery to your timeline. Multi-site orders managed through a single contact.</p></div>
                 </div>
             </div>
         </section>
 
-        <!-- Newsletter -->
-        <section class="newsletter" id="newsletter">
-            <div class="newsletter-content">
-                <h2 data-i18n="newsletter.title">Stay in the green loop</h2>
-                <p data-i18n="newsletter.desc">Subscribe for sustainable inspiration, new product launches, and exclusive offers.</p>
-                <form class="newsletter-form" onsubmit="event.preventDefault(); subscribeNewsletter();">
-                    <input type="email" data-i18n-placeholder="newsletter.placeholder" placeholder="Enter your email address" required>
-                    <button type="submit" class="btn btn-primary" data-i18n="newsletter.button">Subscribe</button>
+        <section class="b2b-contact-cta" id="b2b-contact">
+            <div class="b2b-contact-content">
+                <h2 data-i18n="b2b.contact.title">Request product information</h2>
+                <p data-i18n="b2b.contact.desc">Provide your details and requirements. A member of our hospitality team will respond within one business day.</p>
+                <form class="b2b-contact-form" onsubmit="event.preventDefault(); submitB2BForm();">
+                    <input type="text" class="b2b-input" data-i18n-placeholder="b2b.form.name" placeholder="Your name" required>
+                    <input type="email" class="b2b-input" data-i18n-placeholder="b2b.form.email" placeholder="Business email" required>
+                    <input type="text" class="b2b-input" data-i18n-placeholder="b2b.form.company" placeholder="Company / Hotel group" required>
+                    <input type="text" class="b2b-input" data-i18n-placeholder="b2b.form.role" placeholder="Your role">
+                    <button type="submit" class="b2b-submit" data-i18n="b2b.form.submit">Send Request</button>
                 </form>
             </div>
         </section>
 
-        <!-- Footer -->
-        <footer>
-            <div class="footer-content">
-                <div class="footer-grid">
-                    <div class="footer-brand">
-                        <a class="logo" href="index.html">Ropotelha<span>®</span></a>
-                        <p data-i18n="footer.tagline">Give room to nature. We create sustainable plant pots and planters from recycled materials, powered by wind energy.</p>
-                        <div class="social-links">
-                            <a onclick="showToast(t('toast.social'))"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-                            <a onclick="showToast(t('toast.social'))"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-                            <a onclick="showToast(t('toast.social'))"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12c0-2 1-4 4-4s4 2 4 4-1 4-4 6"/><line x1="9" y1="17" x2="10" y2="22"/></svg></a>
-                            <a onclick="showToast(t('toast.social'))"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.4 19.6c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
-                        </div>
-                    </div>
-                    <div class="footer-column"><h4 data-i18n="footer.shop">Shop</h4><ul><li><a onclick="scrollToSection('categories')" data-i18n="footer.indoor">Indoor</a></li><li><a onclick="scrollToSection('categories')" data-i18n="footer.outdoor">Outdoor</a></li><li><a onclick="scrollToSection('products')" data-i18n="footer.premium">Premium</a></li><li><a onclick="scrollToSection('products')" data-i18n="footer.new">New arrivals</a></li><li><a onclick="showToast(t('toast.sale'))" data-i18n="footer.sale">Sale</a></li></ul></div>
-                    <div class="footer-column"><h4 data-i18n="footer.about">About</h4><ul><li><a onclick="showToast(t('toast.story'))" data-i18n="footer.story">Our story</a></li><li><a onclick="scrollToSection('sustainability')" data-i18n="footer.sustainability">Sustainability</a></li><li><a onclick="showToast(t('toast.careers'))" data-i18n="footer.careers">Careers</a></li><li><a onclick="showToast(t('toast.press'))" data-i18n="footer.press">Press</a></li><li><a href="business.html" data-i18n="footer.business">For Business</a></li></ul></div>
-                    <div class="footer-column"><h4 data-i18n="footer.help">Help</h4><ul><li><a onclick="showToast(t('toast.faq'))" data-i18n="footer.faq">FAQ</a></li><li><a onclick="showToast(t('toast.shipping'))" data-i18n="footer.shipping">Shipping</a></li><li><a onclick="showToast(t('toast.returns'))" data-i18n="footer.returns">Returns</a></li><li><a onclick="showToast(t('toast.contact'))" data-i18n="footer.contact">Contact us</a></li><li><a onclick="showToast(t('toast.stores'))" data-i18n="footer.findstore">Find a store</a></li></ul></div>
-                    <div class="footer-column"><h4 data-i18n="footer.contacttitle">Contact</h4><ul><li><a onclick="showToast(t('toast.contact'))" data-i18n="footer.getintouch">Get in touch</a></li><li><a href="business.html" data-i18n="footer.businessinquiries">Business inquiries</a></li><li><a onclick="showToast(t('toast.stores'))" data-i18n="footer.storelocator">Store locator</a></li></ul></div>
+        <footer class="b2b-footer">
+            <div class="b2b-footer-content">
+                <div class="b2b-footer-left">
+                    <span class="b2b-footer-logo">Ropotelha<span>®</span></span>
+                    <div class="b2b-footer-links"><a onclick="showToast(t('toast.privacy'))" data-i18n="footer.privacy">Privacy</a><a onclick="showToast(t('toast.terms'))" data-i18n="footer.terms">Terms</a><a href="index.html" data-i18n="b2b.nav.consumer">Consumer site</a></div>
                 </div>
-                <div class="footer-bottom">
-                    <p>© 2025 Ropotelha. <span data-i18n="footer.rights">All rights reserved.</span></p>
-                    <div class="b-corp-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h4M12 8v8M16 10v4"/></svg><span>Certified B Corporation</span></div>
-                    <div class="footer-links"><a onclick="showToast(t('toast.disclaimer'))" data-i18n="footer.disclaimer">Disclaimer</a><a onclick="showToast(t('toast.privacy'))" data-i18n="footer.privacy">Privacy statement</a><a onclick="showToast(t('toast.terms'))" data-i18n="footer.terms">Terms and conditions</a></div>
-                </div>
+                <div class="b2b-footer-right">© 2025 Ropotelha. <span data-i18n="footer.rights">All rights reserved.</span></div>
             </div>
         </footer>
 
@@ -833,23 +759,23 @@
         let currentLang = 'en';
         const t = (key) => translations[currentLang][key] || key;
 
-        function toggleLangDropdown(e) { e.stopPropagation(); document.getElementById('langSwitcher').classList.toggle('open'); }
+        function toggleB2BLangDropdown(e) { e.stopPropagation(); document.getElementById('b2bLangSwitcher').classList.toggle('open'); }
         
         function setLanguage(lang, e) {
             if (e) e.stopPropagation();
             currentLang = lang;
             // Update language display
-            document.getElementById('currentLangDisplay').textContent = lang.toUpperCase();
+            document.getElementById('b2bCurrentLangDisplay').textContent = lang.toUpperCase();
             // Update all dropdown buttons
             document.querySelectorAll('.lang-dropdown button').forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-lang') === lang));
             // Update all translations
             document.querySelectorAll('[data-i18n]').forEach(el => { const key = el.getAttribute('data-i18n'); if (translations[lang][key]) el.textContent = translations[lang][key]; });
             document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { const key = el.getAttribute('data-i18n-placeholder'); if (translations[lang][key]) el.placeholder = translations[lang][key]; });
             // Close all dropdowns
-            document.getElementById('langSwitcher').classList.remove('open');
+            document.getElementById('b2bLangSwitcher').classList.remove('open');
         }
         document.addEventListener('click', () => {
-            document.getElementById('langSwitcher').classList.remove('open');
+            document.getElementById('b2bLangSwitcher').classList.remove('open');
         });
 
         // Navigation Indicator
@@ -859,21 +785,21 @@
             indicator.style.width = linkRect.width + 'px';
             indicator.style.left = (linkRect.left - navRect.left) + 'px';
         }
-        function handleNavClick(link, sectionId) {
-            const nav = document.getElementById('mainNav'), indicator = document.getElementById('navIndicator');
+        function handleB2BNavClick(link, sectionId) {
+            const nav = document.getElementById('b2bNav'), indicator = document.getElementById('b2bNavIndicator');
             nav.querySelectorAll('a').forEach(a => a.classList.remove('active'));
             link.classList.add('active');
             updateNavIndicator(nav, link, indicator);
-            scrollToSection(sectionId);
+            scrollToB2BSection(sectionId);
         }
         function initNavIndicators() {
-            const mainNav = document.getElementById('mainNav'), mainIndicator = document.getElementById('navIndicator'), mainActive = mainNav?.querySelector('a.active');
-            if (mainActive && mainIndicator) updateNavIndicator(mainNav, mainActive, mainIndicator);
+            const b2bNav = document.getElementById('b2bNav'), b2bIndicator = document.getElementById('b2bNavIndicator'), b2bActive = b2bNav?.querySelector('a.active');
+            if (b2bActive && b2bIndicator) updateNavIndicator(b2bNav, b2bActive, b2bIndicator);
         }
         window.addEventListener('load', () => setTimeout(initNavIndicators, 100));
         window.addEventListener('resize', initNavIndicators);
-        
-        function scrollToSection(id) { const el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: 'smooth' }); }
+
+        function scrollToB2BSection(id) { const el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: 'smooth' }); }
 
         // Toasts
         function showToast(msg, type = 'default') {
@@ -896,14 +822,6 @@
         function addToWishlist(name) { showToast(name + ' ' + t('toast.wishlist'), 'success'); }
         function subscribeNewsletter() { showToast(t('toast.subscribed'), 'success'); }
         function submitB2BForm() { showToast(t('toast.b2bsent'), 'success'); }
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header:not(.b2b-header)');
-            if (header && document.getElementById('consumer-page').classList.contains('active')) {
-                header.style.boxShadow = window.pageYOffset > 100 ? '0 4px 30px rgba(0,0,0,0.1)' : '0 2px 20px rgba(0,0,0,0.06)';
-            }
-        });
     </script>
 </body>
 </html>
