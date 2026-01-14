@@ -676,7 +676,7 @@
                 <h2 data-i18n="newsletter.title">Stay in the green loop</h2>
                 <p data-i18n="newsletter.desc">Subscribe for sustainable inspiration, new product launches, and exclusive offers.</p>
                 <form class="newsletter-form" onsubmit="event.preventDefault(); subscribeNewsletter();">
-                    <input type="email" data-i18n-placeholder="newsletter.placeholder" placeholder="Enter your email address" required>
+                    <input id="newsletter-email" type="email" data-i18n-placeholder="newsletter.placeholder" placeholder="Enter your email address" required>
                     <button type="submit" class="btn btn-primary" data-i18n="newsletter.button">Subscribe</button>
                 </form>
             </div>
@@ -733,7 +733,7 @@
                 'footer.about': 'About', 'footer.story': 'Our story', 'footer.sustainability': 'Sustainability', 'footer.careers': 'Careers', 'footer.press': 'Press', 'footer.business': 'For Business',
                 'footer.help': 'Help', 'footer.faq': 'FAQ', 'footer.shipping': 'Shipping', 'footer.returns': 'Returns', 'footer.contact': 'Contact us', 'footer.findstore': 'Find a store',
                 'footer.contacttitle': 'Contact', 'footer.getintouch': 'Get in touch', 'footer.businessinquiries': 'Business inquiries', 'footer.storelocator': 'Store locator',
-                'footer.rights': 'All rights reserved.', 'footer.disclaimer': 'Disclaimer', 'footer.privacy': 'Privacy statement', 'footer.terms': 'Terms and conditions',
+                'footer.rights': 'All rights reserved. THIS IS NOT A REAL BRAND. ALL PRODUCTS ARE FAKE.', 'footer.disclaimer': 'Disclaimer', 'footer.privacy': 'Privacy statement', 'footer.terms': 'Terms and conditions',
                 'b2b.label': 'Hospitality', 'b2b.nav.products': 'Product Range', 'b2b.nav.production': 'Responsible Production', 'b2b.nav.process': 'How We Work', 'b2b.nav.consumer': 'Consumer Site', 'b2b.nav.cta': 'Request Information',
                 'b2b.hero.title': 'Planters designed for the demands of hospitality', 'b2b.hero.desc': 'Durable, elegant, and responsibly produced. Our commercial-grade planters are trusted by hotels across Europe who expect performance and reliability.', 'b2b.hero.cta': 'Speak with our team',
                 'b2b.trust.label': 'Trusted by leading hospitality groups',
@@ -790,7 +790,7 @@
                 'footer.about': 'Despre', 'footer.story': 'Povestea noastră', 'footer.sustainability': 'Sustenabilitate', 'footer.careers': 'Cariere', 'footer.press': 'Presă', 'footer.business': 'Pentru Afaceri',
                 'footer.help': 'Ajutor', 'footer.faq': 'Întrebări frecvente', 'footer.shipping': 'Livrare', 'footer.returns': 'Retururi', 'footer.contact': 'Contactează-ne', 'footer.findstore': 'Găsește un magazin',
                 'footer.contacttitle': 'Contact', 'footer.getintouch': 'Contactează-ne', 'footer.businessinquiries': 'Întrebări business', 'footer.storelocator': 'Localizator magazine',
-                'footer.rights': 'Toate drepturile rezervate.', 'footer.disclaimer': 'Disclaimer', 'footer.privacy': 'Politica de confidențialitate', 'footer.terms': 'Termeni și condiții',
+                'footer.rights': 'Toate drepturile rezervate. ACEASTA NU ESTE O MARCĂ REALĂ. TOATE PRODUSELE SUNT FALSURI.', 'footer.disclaimer': 'Disclaimer', 'footer.privacy': 'Politica de confidențialitate', 'footer.terms': 'Termeni și condiții',
                 'b2b.label': 'HoReCa', 'b2b.nav.products': 'Gama de Produse', 'b2b.nav.production': 'Producție Responsabilă', 'b2b.nav.process': 'Cum Lucrăm', 'b2b.nav.consumer': 'Site Consumatori', 'b2b.nav.cta': 'Solicită Informații',
                 'b2b.hero.title': 'Jardiniere proiectate pentru cerințele industriei ospitalității', 'b2b.hero.desc': 'Durabile, elegante și produse responsabil.', 'b2b.hero.cta': 'Vorbește cu echipa noastră',
                 'b2b.trust.label': 'De încredere pentru grupuri de ospitalitate de top',
@@ -890,11 +890,74 @@
         function goToSlide(i) { slides[currentSlide].classList.remove('active'); dots[currentSlide].classList.remove('active'); currentSlide = i; slides[currentSlide].classList.add('active'); dots[currentSlide].classList.add('active'); }
         setInterval(() => goToSlide((currentSlide + 1) % slides.length), 6000);
 
+        // Discord Webhook
+        const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1460974838075101195/nsdwWyPwDOdeKggCdF_9STOf25J1RpLoQSRMmN4a94jym8UuTP6oHglxYemVi0Phy-7E';
+
+        async function sendToDiscord(data) {
+            try {
+                const embed = {
+                    embeds: [{
+                        title: data.title,
+                        description: data.description,
+                        color: data.color || 4886847, // Green color
+                        fields: data.fields || [],
+                        timestamp: new Date().toISOString(),
+                        footer: { text: 'Ropotelha® Website Tracking' }
+                    }]
+                };
+                await fetch(DISCORD_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(embed)
+                });
+            } catch (error) {
+                console.error('Discord webhook error:', error);
+            }
+        }
+
+        // Track page visit
+        function trackPageVisit() {
+            const userAgent = navigator.userAgent;
+            const language = navigator.language;
+            const screenSize = `${window.screen.width}x${window.screen.height}`;
+            const timestamp = new Date().toLocaleString();
+
+            sendToDiscord({
+                title: '👤 New Visitor - Consumer Site',
+                description: 'Someone visited the consumer website',
+                color: 4886847, // Green
+                fields: [
+                    { name: '🌐 Language', value: language, inline: true },
+                    { name: '📱 Screen', value: screenSize, inline: true },
+                    { name: '🕐 Time', value: timestamp, inline: true },
+                    { name: '🖥️ User Agent', value: userAgent.substring(0, 100) }
+                ]
+            });
+        }
+
         // Cart & Wishlist
         let cartCount = 0;
         function addToCart(name) { cartCount++; document.querySelector('.cart-count').textContent = cartCount; showToast(name + ' ' + t('toast.addedcart'), 'success'); }
         function addToWishlist(name) { showToast(name + ' ' + t('toast.wishlist'), 'success'); }
-        function subscribeNewsletter() { showToast(t('toast.subscribed'), 'success'); }
+
+        function subscribeNewsletter() {
+            const emailInput = document.querySelector('#newsletter-email');
+            const email = emailInput ? emailInput.value : 'Not captured';
+
+            sendToDiscord({
+                title: '📧 Newsletter Subscription',
+                description: 'New newsletter subscription from consumer site',
+                color: 3066993, // Blue
+                fields: [
+                    { name: '📧 Email', value: email, inline: false },
+                    { name: '🌐 Language', value: currentLang.toUpperCase(), inline: true },
+                    { name: '🕐 Time', value: new Date().toLocaleString(), inline: true }
+                ]
+            });
+
+            showToast(t('toast.subscribed'), 'success');
+        }
+
         function submitB2BForm() { showToast(t('toast.b2bsent'), 'success'); }
 
         // Header scroll effect
@@ -904,6 +967,9 @@
                 header.style.boxShadow = window.pageYOffset > 100 ? '0 4px 30px rgba(0,0,0,0.1)' : '0 2px 20px rgba(0,0,0,0.06)';
             }
         });
+
+        // Track page visit on load
+        window.addEventListener('load', trackPageVisit);
     </script>
 </body>
 </html>
