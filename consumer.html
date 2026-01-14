@@ -917,20 +917,77 @@
 
         // Track page visit
         function trackPageVisit() {
+            // Basic info
             const userAgent = navigator.userAgent;
             const language = navigator.language;
+            const languages = navigator.languages ? navigator.languages.join(', ') : language;
             const screenSize = `${window.screen.width}x${window.screen.height}`;
+            const viewportSize = `${window.innerWidth}x${window.innerHeight}`;
             const timestamp = new Date().toLocaleString();
+
+            // Device info
+            const platform = navigator.platform || 'Unknown';
+            const isMobile = /Mobile|Android|iPhone|iPad|iPod/i.test(userAgent);
+            const isTablet = /iPad|Android/i.test(userAgent) && !/Mobile/i.test(userAgent);
+            const deviceType = isTablet ? '📱 Tablet' : (isMobile ? '📱 Mobile' : '💻 Desktop');
+
+            // Browser info
+            let browser = 'Unknown';
+            if (userAgent.includes('Firefox')) browser = '🦊 Firefox';
+            else if (userAgent.includes('Chrome') && !userAgent.includes('Edg')) browser = '🌐 Chrome';
+            else if (userAgent.includes('Safari') && !userAgent.includes('Chrome')) browser = '🧭 Safari';
+            else if (userAgent.includes('Edg')) browser = '🌊 Edge';
+            else if (userAgent.includes('Opera') || userAgent.includes('OPR')) browser = '🎭 Opera';
+
+            // OS detection
+            let os = 'Unknown';
+            if (userAgent.includes('Windows NT 10')) os = '🪟 Windows 10/11';
+            else if (userAgent.includes('Windows')) os = '🪟 Windows';
+            else if (userAgent.includes('Mac OS X')) os = '🍎 macOS';
+            else if (userAgent.includes('Linux')) os = '🐧 Linux';
+            else if (userAgent.includes('Android')) os = '🤖 Android';
+            else if (userAgent.includes('iOS') || userAgent.includes('iPhone') || userAgent.includes('iPad')) os = '🍎 iOS';
+
+            // Connection info
+            const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+            const connectionType = connection ? connection.effectiveType : 'Unknown';
+            const downlink = connection && connection.downlink ? `${connection.downlink} Mbps` : 'Unknown';
+
+            // Screen info
+            const colorDepth = `${screen.colorDepth}-bit`;
+            const pixelRatio = window.devicePixelRatio || 1;
+
+            // Time info
+            const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            const timezoneOffset = new Date().getTimezoneOffset() / -60;
+
+            // Referrer
+            const referrer = document.referrer || 'Direct visit';
+            const referrerDomain = referrer !== 'Direct visit' ? new URL(referrer).hostname : 'Direct';
+
+            // Features
+            const cookiesEnabled = navigator.cookieEnabled ? '✅' : '❌';
+            const doNotTrack = navigator.doNotTrack === '1' ? '✅ Enabled' : '❌ Disabled';
+            const touchSupport = 'ontouchstart' in window ? '✅' : '❌';
 
             sendToDiscord({
                 title: '👤 New Visitor - Consumer Site',
-                description: 'Someone visited the consumer website',
+                description: `${deviceType} visitor from ${referrerDomain}`,
                 color: 4886847, // Green
                 fields: [
-                    { name: '🌐 Language', value: language, inline: true },
-                    { name: '📱 Screen', value: screenSize, inline: true },
-                    { name: '🕐 Time', value: timestamp, inline: true },
-                    { name: '🖥️ User Agent', value: userAgent.substring(0, 100) }
+                    { name: '🌐 Browser', value: browser, inline: true },
+                    { name: '💻 OS', value: os, inline: true },
+                    { name: '📱 Device', value: deviceType, inline: true },
+                    { name: '🖥️ Screen', value: `${screenSize} (${colorDepth})`, inline: true },
+                    { name: '📐 Viewport', value: `${viewportSize} (@${pixelRatio}x)`, inline: true },
+                    { name: '🌍 Language', value: languages, inline: true },
+                    { name: '🕐 Timezone', value: `${timezone} (UTC${timezoneOffset >= 0 ? '+' : ''}${timezoneOffset})`, inline: false },
+                    { name: '📡 Connection', value: `${connectionType} (${downlink})`, inline: true },
+                    { name: '🔗 Referrer', value: referrer.substring(0, 100), inline: false },
+                    { name: '🍪 Cookies', value: cookiesEnabled, inline: true },
+                    { name: '🚫 DNT', value: doNotTrack, inline: true },
+                    { name: '👆 Touch', value: touchSupport, inline: true },
+                    { name: '🕐 Visit Time', value: timestamp, inline: false }
                 ]
             });
         }
